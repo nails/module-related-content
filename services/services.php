@@ -1,5 +1,6 @@
 <?php
 
+use Nails\Common\Model\Base;
 use Nails\RelatedContent\Constants;
 use Nails\RelatedContent\Factory;
 use Nails\RelatedContent\Service;
@@ -19,7 +20,14 @@ return [
         },
     ],
     'factories' => [
-        'Store' => function (): Factory\Store {
+        'Result' => function (string $sType, int $iId, int $iScore, Base $oModel): Factory\Result {
+            if (class_exists('\App\RelatedContent\Factory\Result')) {
+                return new \App\RelatedContent\Factory\Result($sType, $iId, $iScore, $oModel);
+            } else {
+                return new Factory\Result($sType, $iId, $iScore, $oModel);
+            }
+        },
+        'Store'  => function (): Factory\Store {
             if (class_exists('\App\RelatedContent\Factory\Store')) {
                 return new \App\RelatedContent\Factory\Store();
             } else {
