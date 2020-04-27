@@ -9,7 +9,8 @@
     "require": {
         "ext-pdo": "*",
         "nails\/common": "dev-develop",
-        "hellopablo/related-content": "^0.6.0"
+        "hellopablo/related-content": "^0.6.0",
+        "phpstan/phpstan": "^0.12.19"
     },
     "require-dev": {
         "phpunit\/phpunit": "8.*"
