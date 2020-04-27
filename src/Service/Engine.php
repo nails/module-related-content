@@ -219,7 +219,7 @@ class Engine
         } elseif (!$oResource instanceof Resource\Entity) {
             throw new IncompatibleObjectException(
                 sprintf(
-                    'Expected %s, got %',
+                    'Expected %s, got %s',
                     Resource\Entity::class,
                     get_class($oResource)
                 )
