@@ -253,11 +253,17 @@ class Engine
      */
     public function index(Resource\Entity $oItem): self
     {
+        $oAnalyser = $this->getAnalyserFromResource($oItem);
+        $oModel    = $oAnalyser::mapsToModel();
+
         $this
             ->oEngine
             ->index(
-                $oItem,
-                $this->getAnalyserFromResource($oItem)
+                $oModel->getById(
+                    $oAnalyser->getId($oItem),
+                    $oAnalyser->lookupData()
+                ),
+                $oAnalyser
             );
 
         return $this;
@@ -315,7 +321,10 @@ class Engine
         $aHits = $this
             ->oEngine
             ->query(
-                $oModel->getById($oAnalyser->getId($oSource), $oAnalyser->lookupData()),
+                $oModel->getById(
+                    $oAnalyser->getId($oSource),
+                    $oAnalyser->lookupData()
+                ),
                 $oAnalyser,
                 $aRestrict,
                 $iLimit
