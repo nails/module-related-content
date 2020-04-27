@@ -307,13 +307,6 @@ class Engine
      */
     public function query(Resource\Entity $oSource, array $aRestrict = [], int $iLimit = null): array
     {
-        $aRestrict = array_map(
-            function (Analyser\Base $oAnalyser) {
-                return get_class($oAnalyser);
-            },
-            $aRestrict
-        );
-
         $oAnalyser = $this->getAnalyserFromResource($oSource);
         $oModel    = $oAnalyser::mapsToModel();
 
