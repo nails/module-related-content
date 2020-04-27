@@ -1,0 +1,37 @@
+{
+    "name": "nails\/module-related-content",
+    "keywords": [],
+    "homepage": "https:\/\/docs.nailsapp.co.uk\/modules\/other\/related-content",
+    "description": "A simple relation engine for Nails.",
+    "license": "MIT",
+    "minimum-stability": "dev",
+    "prefer-stable": true,
+    "require": {
+        "nails\/common": "dev-develop",
+        "hellopablo/related-content": "0.0.3"
+    },
+    "require-dev": {
+        "phpunit\/phpunit": "8.*"
+    },
+    "autoload": {
+        "psr-4": {
+            "Nails\\RelatedContent\\": "src\/"
+        }
+    },
+    "extra": {
+        "nails": {
+            "moduleName": "module-related-content",
+            "type": "module",
+            "namespace": "Nails\\RelatedContent\\",
+            "data": {}
+        }
+    },
+    "scripts": {
+        "test": ".\/vendor\/bin\/phpunit"
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Nails\\RelatedContent\\Tests\\": "src\/"
+        }
+    }
+}
