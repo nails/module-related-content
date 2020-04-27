@@ -7,6 +7,7 @@
     "minimum-stability": "dev",
     "prefer-stable": true,
     "require": {
+        "ext-pdo": "*",
         "nails\/common": "dev-develop",
         "hellopablo/related-content": "^0.6.0"
     },
