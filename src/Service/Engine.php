@@ -10,7 +10,6 @@ use Nails\Common\Model\Base;
 use Nails\Common\Resource;
 use Nails\Common\Service\Event;
 use Nails\Components;
-use Nails\Config;
 use Nails\RelatedContent\Analyser;
 use Nails\RelatedContent\Constants;
 use Nails\RelatedContent\Exception\IncompatibleObjectException;
@@ -54,10 +53,6 @@ class Engine
         $this->mapAnalysers(
             $this->discoverAnalysers()
         );
-
-        if (Config::get('RELATED_CONTENT_AUTO_INDEX', true)) {
-            $this->setUpListeners();
-        }
 
         $this->oStore  = $oStore;
         $this->oEngine = Factory::build($this->oStore->getStore());
@@ -121,7 +116,7 @@ class Engine
      * @return $this
      * @throws FactoryException
      */
-    protected function setUpListeners(): self
+    public function setUpListeners(): self
     {
         /** @var Event $oEventService */
         $oEventService = \Nails\Factory::service('Event');
