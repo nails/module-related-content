@@ -1,29 +1,30 @@
 <?php
-/**
- * Define your module's services, models and factories.
- *
- * @link http://nailsapp.co.uk/docs/services
- */
+
+use Nails\RelatedContent\Constants;
+use Nails\RelatedContent\Factory;
+use Nails\RelatedContent\Service;
+
 return [
-    /**
-     * Classes/libraries which don't necessarily relate to a database table.
-     * Once instantiated, a request for a service will always return the same instance.
-     */
-    'services'  => [],
+    'services'  => [
+        'Engine' => function (): Service\Engine {
 
-    /**
-     * Models generally represent database tables.
-     * Once instantiated, a request for a model will always return the same instance.
-     */
-    'models'    => [],
+            /** @var Factory\Store $oStore */
+            $oStore = \Nails\Factory::factory('Store', Constants::MODULE_SLUG);
 
-    /**
-     * A class for which a new instance is created each time it is requested.
-     */
-    'factories' => [],
-
-    /**
-     * A class which represents an object from the database
-     */
-    'resources' => [],
+            if (class_exists('\App\RelatedContent\Service\Engine')) {
+                return new \App\RelatedContent\Service\Engine($oStore);
+            } else {
+                return new Service\Engine($oStore);
+            }
+        },
+    ],
+    'factories' => [
+        'Store' => function (): Factory\Store {
+            if (class_exists('\App\RelatedContent\Factory\Store')) {
+                return new \App\RelatedContent\Factory\Store();
+            } else {
+                return new Factory\Store();
+            }
+        },
+    ],
 ];
