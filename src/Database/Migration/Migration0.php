@@ -5,7 +5,7 @@
  * Started:     2020-04-27
  */
 
-namespace Nails\Database\Migration\Nails\ModuleRelatedContent;
+namespace Nails\RelatedContent\Database\Migration;
 
 use Nails\Common\Console\Migrate\Base;
 
