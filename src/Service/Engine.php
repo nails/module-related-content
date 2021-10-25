@@ -340,4 +340,32 @@ class Engine
 
         return $aResults;
     }
+
+    // --------------------------------------------------------------------------
+
+    /**
+     * Deletes all data in the store
+     *
+     * @return $this
+     */
+    public function empty(): self
+    {
+        $this
+            ->oEngine
+            ->empty();
+
+        return $this;
+    }
+
+    // --------------------------------------------------------------------------
+
+    /**
+     * Returns the Model Map
+     *
+     * @return string[]
+     */
+    public function getModelMap(): array
+    {
+        return $this->aModelMap;
+    }
 }
