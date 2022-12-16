@@ -299,13 +299,14 @@ class Engine
      * @param Resource\Entity $oSource   The source item
      * @param Analyser\Base[] $aRestrict The type of content to restrict by
      * @param int             $iLimit    The number of items to return
+     * @param int             $iOffset   The offset for the query
      *
      * @return Result[]
      * @throws IncompatibleObjectException
      * @throws ModelException
      * @throws FactoryException
      */
-    public function query(Resource\Entity $oSource, array $aRestrict = [], int $iLimit = null): array
+    public function query(Resource\Entity $oSource, array $aRestrict = [], int $iLimit = null, $iOffset = 0): array
     {
         $oAnalyser = $this->getAnalyserFromResource($oSource);
         $oModel    = $oAnalyser::mapsToModel();
@@ -320,7 +321,8 @@ class Engine
                 ),
                 $oAnalyser,
                 $aRestrict,
-                $iLimit
+                $iLimit,
+                $iOffset
             );
 
         $aResults = [];
