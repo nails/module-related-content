@@ -9,7 +9,7 @@
     "require": {
         "ext-pdo": "*",
         "nails\/common": "dev-develop",
-        "hellopablo/related-content": "^0.6",
+        "hellopablo/related-content": "^0.7",
         "phpstan/phpstan": "1.*"
     },
     "require-dev": {
