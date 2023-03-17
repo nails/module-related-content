@@ -13,17 +13,10 @@ use Nails\Common\Resource\Entity;
  */
 class Result
 {
-    /** @var string */
-    protected $sType;
-
-    /** @var int */
-    protected $iId;
-
-    /** @var int */
-    protected $iScore;
-
-    /** @var Base */
-    protected $oModel;
+    protected string $sType;
+    protected int    $iId;
+    protected int    $iScore;
+    protected Base   $oModel;
 
     // --------------------------------------------------------------------------
 
@@ -58,5 +51,53 @@ class Result
         /** @var Entity $oEntity */
         $oEntity = $this->oModel->getById($this->iId, $aData);
         return $oEntity;
+    }
+
+    // --------------------------------------------------------------------------
+
+    /**
+     * Returns the result's type
+     *
+     * @return int
+     */
+    public function getType(): int
+    {
+        return $this->iScore;
+    }
+
+    // --------------------------------------------------------------------------
+
+    /**
+     * Returns the result's score
+     *
+     * @return int
+     */
+    public function getScore(): int
+    {
+        return $this->iScore;
+    }
+
+    // --------------------------------------------------------------------------
+
+    /**
+     * Returns the result's ID
+     *
+     * @return int
+     */
+    public function getId(): int
+    {
+        return $this->iId;
+    }
+
+    // --------------------------------------------------------------------------
+
+    /**
+     * Returns the result's model
+     *
+     * @return Base
+     */
+    public function getModel(): Base
+    {
+        return $this->oModel;
     }
 }
