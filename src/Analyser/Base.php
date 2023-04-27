@@ -45,7 +45,7 @@ abstract class Base implements Analyser
      * @return mixed
      * @throws IncompatibleObjectException
      */
-    public function getId(object $oItem)
+    public function getId(object $oItem): mixed
     {
         if (!$oItem instanceof Entity) {
             throw new IncompatibleObjectException(

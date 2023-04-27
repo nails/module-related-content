@@ -14,7 +14,7 @@ use Nails\Config;
 class Store
 {
     /** @var MySQL */
-    protected $oStore;
+    protected MySQL $oStore;
 
     // --------------------------------------------------------------------------
 
