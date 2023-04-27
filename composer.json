@@ -8,13 +8,13 @@
     "prefer-stable": true,
     "require": {
         "ext-pdo": "*",
-        "nails\/common": "dev-develop",
+        "nails\/common": "dev-feature/pre-new-admin",
         "hellopablo/related-content": "^0.7",
         "phpstan/phpstan": "1.*"
     },
     "require-dev": {
         "phpunit\/phpunit": "8.*",
-        "nails\/module-console": "dev-develop"
+        "nails\/module-console": "dev-feature/pre-new-admin"
     },
     "autoload": {
         "psr-4": {
