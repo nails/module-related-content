@@ -25,19 +25,19 @@ use Nails\RelatedContent\Factory\Store;
 class Engine
 {
     /** @var Analyser\Base[] */
-    protected $aAnalysers = [];
+    protected array $aAnalysers = [];
 
     /** @var string[] */
-    protected $aModelMap = [];
+    protected array $aModelMap = [];
 
     /** @var string[] */
-    protected $aResourceMap = [];
+    protected array $aResourceMap = [];
 
     /** @var Store */
-    protected $oStore;
+    protected Store $oStore;
 
     /** @var \HelloPablo\RelatedContent\Engine */
-    protected $oEngine;
+    protected \HelloPablo\RelatedContent\Engine $oEngine;
 
     // --------------------------------------------------------------------------
 
