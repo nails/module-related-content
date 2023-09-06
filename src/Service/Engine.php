@@ -72,7 +72,8 @@ class Engine
 
             $oClassCollection = $oComponent
                 ->findClasses('RelatedContent\\Analyser')
-                ->whichExtend(Analyser\Base::class);
+                ->whichExtend(Analyser\Base::class)
+                ->whichCanBeInstantiated();
 
             foreach ($oClassCollection as $sAnalyser) {
                 $aAnalysers[] = $sAnalyser;
