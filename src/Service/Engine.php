@@ -260,10 +260,7 @@ class Engine
         $this
             ->oEngine
             ->index(
-                $oModel->getById(
-                    $oAnalyser->getId($oItem),
-                    $oAnalyser->lookupData()
-                ),
+                $oItem,
                 $oAnalyser
             );
 
