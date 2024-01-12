@@ -23,8 +23,9 @@ class Index extends Base
     {
         $this
             ->setName('relatedcontent:index')
-            ->setDescription('Indexes all related content')
-            ->addOption('fresh', 'f', InputOption::VALUE_NONE, 'Destroys existing relationship data before indexing');
+            ->setDescription('Indexes related content')
+            ->addOption('fresh', 'f', InputOption::VALUE_NONE, 'Destroys existing relationship data before indexing')
+            ->addOption('model', 'm', InputOption::VALUE_REQUIRED | InputOption::VALUE_IS_ARRAY, 'Which models to index');
     }
 
     // --------------------------------------------------------------------------
@@ -54,7 +55,13 @@ class Index extends Base
                 $oEngine->empty();
             }
 
+            $aRestrictToModels = $oInput->getOption('model');
+
             foreach ($oEngine->getModelMap() as $sModel => $sAnalyser) {
+
+                if (!empty($aRestrictToModels) && !in_array($sModel, $aRestrictToModels)) {
+                    continue;
+                }
 
                 $oOutput->writeln(sprintf(
                     'Indexing <info>%s</info> items:',
