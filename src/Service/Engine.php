@@ -304,7 +304,7 @@ class Engine
      * @throws ModelException
      * @throws FactoryException
      */
-    public function query(Resource\Entity $oSource, array $aRestrict = [], int $iLimit = null, $iOffset = 0): array
+    public function query(Resource\Entity $oSource, array $aRestrict = [], ?int $iLimit = null, $iOffset = 0): array
     {
         $oAnalyser = $this->getAnalyserFromResource($oSource);
         $oModel    = $oAnalyser::mapsToModel();
