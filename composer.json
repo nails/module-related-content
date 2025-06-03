@@ -1,41 +1,52 @@
 {
-    "name": "nails\/module-related-content",
-    "keywords": [],
-    "homepage": "https:\/\/docs.nailsapp.co.uk\/modules\/other\/related-content",
+    "name": "nails/module-related-content",
+    "keywords":
+    [],
+    "homepage": "https://docs.nailsapp.co.uk/modules/other/related-content",
     "description": "A simple relation engine for Nails.",
     "license": "MIT",
     "minimum-stability": "dev",
     "prefer-stable": true,
-    "require": {
+    "require":
+    {
         "php": ">=8",
         "ext-pdo": "*",
-        "nails\/common": "dev-feature/pre-new-admin-ci-php8",
+        "nails/common": "dev-feature/pre-new-admin",
         "hellopablo/related-content": "^0.8",
         "phpstan/phpstan": "1.*"
     },
-    "require-dev": {
-        "phpunit\/phpunit": "8.*",
-        "nails\/module-console": "dev-feature/pre-new-admin-ci-php8"
+    "require-dev":
+    {
+        "phpunit/phpunit": "8.*",
+        "nails/module-console": "dev-feature/pre-new-admin"
     },
-    "autoload": {
-        "psr-4": {
-            "Nails\\RelatedContent\\": "src\/"
+    "autoload":
+    {
+        "psr-4":
+        {
+            "Nails\\RelatedContent\\": "src/"
         }
     },
-    "extra": {
-        "nails": {
+    "extra":
+    {
+        "nails":
+        {
             "moduleName": "module-related-content",
             "type": "module",
             "namespace": "Nails\\RelatedContent\\",
-            "data": {}
+            "data":
+            {}
         }
     },
-    "scripts": {
-        "test": ".\/vendor\/bin\/phpunit"
+    "scripts":
+    {
+        "test": "./vendor/bin/phpunit"
     },
-    "autoload-dev": {
-        "psr-4": {
-            "Nails\\RelatedContent\\Tests\\": "src\/"
+    "autoload-dev":
+    {
+        "psr-4":
+        {
+            "Nails\\RelatedContent\\Tests\\": "src/"
         }
     }
 }
