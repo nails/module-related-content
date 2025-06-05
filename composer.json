@@ -12,7 +12,7 @@
         "php": ">=8",
         "ext-pdo": "*",
         "nails/common": "dev-feature/pre-new-admin",
-        "hellopablo/related-content": "^0.8",
+        "hellopablo/related-content": "0.*",
         "phpstan/phpstan": "1.*"
     },
     "require-dev":
