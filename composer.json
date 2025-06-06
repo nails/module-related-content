@@ -11,7 +11,7 @@
     {
         "php": ">=8",
         "ext-pdo": "*",
-        "nails/common": "dev-feature/pre-new-admin",
+        "nails/common": "dev-develop",
         "hellopablo/related-content": "0.*",
         "phpstan/phpstan": "1.*"
     },
