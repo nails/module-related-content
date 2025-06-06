@@ -5,6 +5,7 @@ namespace Nails\RelatedContent\Factory;
 use HelloPablo\RelatedContent\Exception\MissingExtension;
 use HelloPablo\RelatedContent\Store\MySQL;
 use Nails\Config;
+use Nails\Testing;
 
 /**
  * Class Store
@@ -29,7 +30,7 @@ class Store
             'host'     => Config::get('DB_HOST'),
             'user'     => Config::get('DB_USERNAME'),
             'pass'     => Config::get('DB_PASSWORD'),
-            'database' => Config::get('DB_DATABASE'),
+            'database' => Testing::enabled() ? Testing::DB_NAME : Config::get('DB_DATABASE'),
             'port'     => Config::get('DB_PORT'),
             'table'    => NAILS_DB_PREFIX . 'related_content_data',
         ]);
