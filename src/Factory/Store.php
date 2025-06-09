@@ -4,7 +4,9 @@ namespace Nails\RelatedContent\Factory;
 
 use HelloPablo\RelatedContent\Exception\MissingExtension;
 use HelloPablo\RelatedContent\Store\MySQL;
+use Nails\Common\Service\Database;
 use Nails\Config;
+use Nails\Factory;
 use Nails\Testing;
 
 /**
@@ -26,12 +28,15 @@ class Store
      */
     public function __construct()
     {
+        /** @var Database */
+        $oDb = Factory::service('Database');
+
         $this->oStore = new MySQL([
-            'host'     => Config::get('DB_HOST'),
-            'user'     => Config::get('DB_USERNAME'),
-            'pass'     => Config::get('DB_PASSWORD'),
-            'database' => Testing::enabled() ? Testing::DB_NAME : Config::get('DB_DATABASE'),
-            'port'     => Config::get('DB_PORT'),
+            'host'     => $oDb->getHost(),
+            'user'     => $oDb->getUsername(),
+            'pass'     => $oDb->getPassword(),
+            'database' => $oDb->getDatabase(),
+            'port'     => $oDb->getPort(),
             'table'    => NAILS_DB_PREFIX . 'related_content_data',
         ]);
     }
