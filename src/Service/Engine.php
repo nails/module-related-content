@@ -39,6 +39,8 @@ class Engine
     /** @var \HelloPablo\RelatedContent\Engine */
     protected \HelloPablo\RelatedContent\Engine $oEngine;
 
+    protected bool $bIndexingEnabled = true;
+
     // --------------------------------------------------------------------------
 
     /**
@@ -201,6 +203,10 @@ class Engine
      */
     public function autoIndex(int $iId, Base $oModel): self
     {
+        if (!$this->isIndexingEnabled()) {
+            return $this;
+        }
+
         $oAnalyser = $this->getAnalyserFromModel($oModel);
         $oResource = $oModel->getById($iId, $oAnalyser->lookupData());
 
@@ -254,6 +260,10 @@ class Engine
      */
     public function index(Resource\Entity $oItem): self
     {
+        if (!$this->isIndexingEnabled()) {
+            return $this;
+        }
+
         $oAnalyser = $this->getAnalyserFromResource($oItem);
         $oModel    = $oAnalyser::mapsToModel();
 
@@ -367,5 +377,28 @@ class Engine
     public function getModelMap(): array
     {
         return $this->aModelMap;
+    }
+
+    // --------------------------------------------------------------------------
+
+    public function isIndexingEnabled(): bool
+    {
+        return $this->bIndexingEnabled;
+    }
+
+    // --------------------------------------------------------------------------
+
+    public function enableIndexing(): self
+    {
+        $this->bIndexingEnabled = true;
+        return $this;
+    }
+
+    // --------------------------------------------------------------------------
+
+    public function disableIndexing(): self
+    {
+        $this->bIndexingEnabled = false;
+        return $this;
     }
 }
