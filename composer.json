@@ -36,7 +36,7 @@
     {
         "nails":
         {
-            "moduleName": "related-content",
+            "moduleName": "relatedContent",
             "type": "module",
             "namespace": "Nails\\RelatedContent\\",
             "data":
